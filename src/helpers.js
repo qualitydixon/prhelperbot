@@ -1,0 +1,45 @@
+export const githubToSlack = {
+	qualitydixon: 'mike',
+	kengoldfarb: 'ken',
+	corbanb: 'corban',
+	jtini: 'jeremy',
+	Zoezter: 'zoe',
+	RobinNCain: 'robin',
+	BrandonMinch: 'brandon',
+	ipbrennan90: 'ian'
+}
+
+export function getSlackName (ghUser) {
+	return githubToSlack[ghUser]
+}
+
+export function getAttachmentMessage (action, isMerged) {
+	switch (action) {
+	case 'opened':
+		return 'A new Pull Request was opened!'
+	default:
+		return 'There\'s new Pull Request Activity!'
+	}
+}
+
+export function getMessageText (action, isMerged) {
+	if (action === 'closed' && isMerged) {
+		return 'A Pull Request was merged!! :party:'
+	}
+
+	switch (action) {
+	case 'reopened':
+	case 'opened':
+		return ''
+	case 'closed':
+		return 'A Pull Request was closed but not merged :confused:'
+	case 'review_requested':
+		return 'A review has been requested. :astonished:'
+	default:
+		return 'There is new Pull Request Activity'
+	}
+}
+
+export function getReviewers (reviewers) {
+	return reviewers.map(rev => `@${getSlackName(rev.login)}`).join(' ')
+}
