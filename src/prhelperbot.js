@@ -43,7 +43,7 @@ export default class PRHelperBot {
 							},
 							{
 								'title': 'Base',
-								'value': prData.head.ref,
+								'value': prData.base.ref,
 								'short': true
 							},
 							{
