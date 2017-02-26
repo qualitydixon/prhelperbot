@@ -56,7 +56,7 @@ export default class PRHelperBot {
 				]
 			}
 			: {}
-		this.prBot.postMessageToUser('mike', getMessageText(action, prData.merged), params)
-		// this.prBot.postMessageToGroup('cinebody-platform', 'There\'s new PR activity! Sorry I don\'t have more info, it\'s my first day.')
+		// this.prBot.postMessageToUser('mike', getMessageText(action, prData.merged), params)
+		this.prBot.postMessageToGroup('cinebody-platform', getMessageText(action, prData.merged), params)
 	}
 }
