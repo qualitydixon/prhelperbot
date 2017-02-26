@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d lib",
-    "start": "babel src -d lib && node lib/server.js"
+    "local": "babel src -d lib && node lib/server.js",
+    "start": "node lib/server.js"
   },
   "author": "Mike Dixon <qualitydixon@gmail.com> (http://barbershop.io)",
   "license": "ISC",
