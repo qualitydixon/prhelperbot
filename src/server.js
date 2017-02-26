@@ -25,7 +25,7 @@ app.post('/payload', (req, res) => {
 	}
 })
 
-app.listen(4567, function () {
-	console.log('Listening for PRs on port 4567!')
+app.listen(process.env.PORT || 4000, function () {
+	console.log('Listening for PRs!')
 	prBot.start()
 })
