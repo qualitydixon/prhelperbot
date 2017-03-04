@@ -17,7 +17,7 @@ app.post('/payload', (req, res) => {
 	console.log('request', req.body.action)
 	const prData = req.body.pull_request
 	const action = req.body.action
-	if (action === 'opened' || action === 'reopened' || action === 'closed' || action === 'review_requested') {
+	if (action === 'opened' || action === 'reopened' || action === 'closed') {
 		prBot.sendMessage({
 			action,
 			prData
