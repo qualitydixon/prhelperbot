@@ -1,5 +1,6 @@
 import Bot from 'slackbots'
 import fs from 'fs'
+import { CronJob } from 'cron'
 import { getSlackName, getMessageText, getReviewers } from './helpers'
 
 if (fs.existsSync('./.env')) require('dotenv').config({path: './.env'})
