@@ -30,6 +30,7 @@ export default class PRHelperBot {
 
 const openedAttachment = prData => ({
 	'link_names': '1',
+	'as_user': 'true',
 	'attachments':
 	[
 		{
@@ -65,6 +66,7 @@ const openedAttachment = prData => ({
 
 const closedAttachment = prData => ({
 	'link_names': '1',
+	'as_user': 'true',
 	'attachments':
 	[
 		{
@@ -77,6 +79,7 @@ const closedAttachment = prData => ({
 
 const warnAttachment = prData => ({
 	'link_names': '1',
+	'as_user': 'true',
 	'attachments':
 	[
 		{
