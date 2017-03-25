@@ -14,6 +14,7 @@ app.all("/", function(req, res) {
 app.post("/payload", (req, res) => {
   res.status(200).send("OK");
   console.log("request", req.body.action);
+  console.log("request data", req.body.pull_request);
   const prData = req.body.pull_request;
   const action = req.body.action;
   if (action === "opened" || action === "reopened" || action === "closed") {
