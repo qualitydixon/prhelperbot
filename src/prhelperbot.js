@@ -46,7 +46,7 @@ const openedAttachment = prData => ({
   as_user: "true",
   attachments: [
     {
-      fallback: "A Pull Request was opened",
+      fallback: `${getSlackName(prData.user.login)} opened a pull request`,
       color: "#00BDF2",
       pretext: "",
       author_name: `${getSlackName(prData.user.login)}`,
@@ -81,9 +81,9 @@ const closedAttachment = prData => ({
   as_user: "true",
   attachments: [
     {
-      fallback: "A pull request was merged by ",
+      fallback: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request`,
       color: "#6F42C1",
-      text: "A pull request was merged!"
+      text: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request. You rock!`
     }
   ]
 });
