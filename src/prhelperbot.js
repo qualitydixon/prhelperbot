@@ -22,16 +22,7 @@ export default class PRHelperBot {
   sendMessage(
     {
       action,
-      prData,
-      prUrl,
-      title,
-      description,
-      reviewers,
-      user,
-      aviUrl,
-      head,
-      base,
-      isMerged
+      prData
     }
   ) {
     if (action === "opened" || action === "reopened") {
@@ -40,7 +31,7 @@ export default class PRHelperBot {
         "",
         openedAttachment(prData)
       );
-    } else if (action === "closed" && isMerged) {
+    } else if (action === "closed") {
       this.prBot.postMessageToChannel(
         "pocketbot",
         "",
