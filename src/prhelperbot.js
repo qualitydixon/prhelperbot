@@ -72,14 +72,17 @@ const openedAttachment = prData => {
 };
 
 const closedAttachment = prData => {
+  const message = prData && prData.merged_by.login
+    ? `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request.`
+    : "A pull request was merged.";
   return {
     link_names: "1",
     as_user: "true",
     attachments: [
       {
-        fallback: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request`,
+        fallback: message,
         color: "#6F42C1",
-        text: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request. You rock!`
+        text: `${message} You rock!`
       }
     ]
   };
