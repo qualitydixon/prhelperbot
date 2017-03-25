@@ -30,7 +30,7 @@ export default class PRHelperBot {
         "",
         openedAttachment(prData)
       );
-    } else if (action === "closed") {
+    } else if (action === "closed" && prData.merged) {
       this.prBot.postMessageToGroup(
         "cinebody-platform",
         "",
