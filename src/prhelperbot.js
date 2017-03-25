@@ -1,7 +1,6 @@
 import Bot from "slackbots";
 import fs from "fs";
-import { CronJob } from "cron";
-import { getSlackName, getMessageText, getReviewers } from "./helpers";
+import { getSlackName, getReviewers } from "./helpers";
 
 if (fs.existsSync("./.env")) require("dotenv").config({ path: "./.env" });
 
@@ -26,14 +25,14 @@ export default class PRHelperBot {
     }
   ) {
     if (action === "opened" || action === "reopened") {
-      this.prBot.postMessageToChannel(
-        "pocketbot",
+      this.prBot.postMessageToGroup(
+        "cinebody-platform",
         "",
         openedAttachment(prData)
       );
     } else if (action === "closed") {
-      this.prBot.postMessageToChannel(
-        "pocketbot",
+      this.prBot.postMessageToGroup(
+        "cinebody-platform",
         "",
         closedAttachment(prData)
       );
