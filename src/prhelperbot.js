@@ -41,52 +41,49 @@ export default class PRHelperBot {
   }
 }
 
-const openedAttachment = prData => ({
-  link_names: "1",
-  as_user: "true",
-  attachments: [
-    {
-      fallback: `${getSlackName(prData.user.login)} opened a pull request`,
-      color: "#00BDF2",
-      pretext: "",
-      author_name: `${getSlackName(prData.user.login)}`,
-      author_link: `https://github.com/${prData.user.login}`,
-      author_icon: prData.user.avatar_url,
-      title: prData.title,
-      title_link: prData.html_url,
-      text: prData.body,
-      fields: [
-        {
-          title: "Head",
-          value: prData.head.ref,
-          short: true
-        },
-        {
-          title: "Base",
-          value: prData.base.ref,
-          short: true
-        },
+const openedAttachment = prData => {
+  const fields = prData.requested_reviewers.length > 0
+    ? [
         {
           title: "Reviewers",
           value: getReviewers(prData.requested_reviewers),
           short: true
         }
       ]
-    }
-  ]
-});
+    : [];
+  return {
+    link_names: "1",
+    as_user: "true",
+    attachments: [
+      {
+        fallback: `${getSlackName(prData.user.login)} opened a pull request`,
+        color: "#00BDF2",
+        pretext: "",
+        author_name: `${getSlackName(prData.user.login)}`,
+        author_link: `https://github.com/${prData.user.login}`,
+        author_icon: prData.user.avatar_url,
+        title: prData.title,
+        title_link: prData.html_url,
+        text: prData.body,
+        fields: fields
+      }
+    ]
+  };
+};
 
-const closedAttachment = prData => ({
-  link_names: "1",
-  as_user: "true",
-  attachments: [
-    {
-      fallback: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request`,
-      color: "#6F42C1",
-      text: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request. You rock!`
-    }
-  ]
-});
+const closedAttachment = prData => {
+  return {
+    link_names: "1",
+    as_user: "true",
+    attachments: [
+      {
+        fallback: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request`,
+        color: "#6F42C1",
+        text: `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request. You rock!`
+      }
+    ]
+  };
+};
 
 const warnAttachment = prData => ({
   link_names: "1",
