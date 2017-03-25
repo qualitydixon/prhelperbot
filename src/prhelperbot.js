@@ -72,7 +72,7 @@ const openedAttachment = prData => {
 };
 
 const closedAttachment = prData => {
-  const message = prData && prData.merged_by.login
+  const message = prData.merged_by !== null
     ? `${getSlackName(prData.merged_by.login)} merged ${getSlackName(prData.user.login)}'s pull request.`
     : "A pull request was merged.";
   return {
