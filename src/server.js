@@ -13,7 +13,8 @@ app.all("/", function(req, res) {
 
 app.post("/payload", (req, res) => {
   res.status(200).send("OK");
-  console.log("request", req.body.action);
+  console.log("request action:", req.body.action);
+  console.warn("**********************");
   console.log("request data", req.body.pull_request);
   const prData = req.body.pull_request;
   const action = req.body.action;
@@ -26,6 +27,6 @@ app.post("/payload", (req, res) => {
 });
 
 app.listen(process.env.PORT || 4000, function() {
-  console.log("Listening for PRs!");
+  console.log("Listening");
   prBot.start();
 });
