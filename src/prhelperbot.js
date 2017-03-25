@@ -35,9 +35,17 @@ export default class PRHelperBot {
     }
   ) {
     if (action === "opened" || action === "reopened") {
-      this.prBot.postMessageToGroup("pocketbot", "", openedAttachment(prData));
+      this.prBot.postMessageToChannel(
+        "pocketbot",
+        "",
+        openedAttachment(prData)
+      );
     } else if (action === "closed" && isMerged) {
-      this.prBot.postMessageToGroup("pocketbot", "", closedAttachment(prData));
+      this.prBot.postMessageToChannel(
+        "pocketbot",
+        "",
+        closedAttachment(prData)
+      );
     }
   }
 }
