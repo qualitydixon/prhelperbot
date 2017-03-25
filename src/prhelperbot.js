@@ -35,17 +35,9 @@ export default class PRHelperBot {
     }
   ) {
     if (action === "opened" || action === "reopened") {
-      this.prBot.postMessageToGroup(
-        "cinebody-platform",
-        "",
-        openedAttachment(prData)
-      );
+      this.prBot.postMessageToGroup("pocketbot", "", openedAttachment(prData));
     } else if (action === "closed" && isMerged) {
-      this.prBot.postMessageToGroup(
-        "cinebody-platform",
-        "",
-        closedAttachment(prData)
-      );
+      this.prBot.postMessageToGroup("pocketbot", "", closedAttachment(prData));
     }
   }
 }
