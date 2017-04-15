@@ -5,7 +5,7 @@ import PRHelperBot from './prhelperbot'
 const app = express()
 const prBot = new PRHelperBot()
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 
 app.all('/', function(req, res) {
 	res.send('Hello!')
