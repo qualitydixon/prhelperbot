@@ -9,6 +9,8 @@ app.use(bodyParser.json())
 
 app.all('/', function(req, res) {
 	res.send('Hello!')
+	console.log('request action:', req)
+	console.log('**********************')
 })
 
 app.post('/payload', (req, res) => {
