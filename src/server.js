@@ -30,7 +30,9 @@ app.post('/payload', (req, res) => {
 
 app.post('/pr', (req, res) => {
 	res.status(200).send('OK')
-	console.log('request action:', req)
+	console.log('request:', req)
+	console.log('**********************')
+	console.log('request body:', req.body)
 	console.log('**********************')
 })
 
