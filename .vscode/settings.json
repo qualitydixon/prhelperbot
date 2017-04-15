@@ -1,3 +1,8 @@
 {
-	"vsicons.presets.angular": false
+	"vsicons.presets.angular": false,
+	"prettier.singleQuote": true,
+	"prettier.trailingComma": "es5",
+	"prettier.bracketSpacing": true,
+	"prettier.semi": false,
+	"editor.formatOnSave": true
 }
