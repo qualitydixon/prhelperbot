@@ -9,7 +9,9 @@ dependencies:
     - node_modules
   override:
     - npm prune && npm install
-
+compile:
+  override:
+    - npm build
 test:
   override:
     - npm test
