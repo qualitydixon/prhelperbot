@@ -8,7 +8,7 @@ const prBot = new PRHelperBot()
 app.use(bodyParser.json())
 
 app.all('/', function(req, res) {
-	res.send('Hello World!')
+	res.send('Hello!')
 })
 
 app.post('/payload', (req, res) => {
