@@ -1,7 +1,11 @@
-import { ghToSlack } from './config'
+import { ghToSlack, repoToChannel } from './config'
 
 export function getSlackName(ghUser) {
 	return ghToSlack[ghUser]
+}
+
+export function getChannelName(repo) {
+	return repoToChannel[repo]
 }
 
 export function getAttachmentMessage(action, isMerged) {

@@ -1,6 +1,6 @@
 import Bot from 'slackbots'
 import fs from 'fs'
-import { getSlackName, getReviewers } from './helpers'
+import { getSlackName, getChannelName, getReviewers } from './helpers'
 
 if (fs.existsSync('./.env')) require('dotenv').config({ path: './.env' })
 
@@ -18,16 +18,16 @@ export default class PRHelperBot {
 		// this.prBot.postMessageToUser('mike', 'I\'m just getting started')
 	}
 
-	sendMessage({ action, prData }) {
+	sendMessage({ action, prData, repo }) {
 		if (action === 'opened' || action === 'reopened') {
 			this.prBot.postMessageToGroup(
-				'cinebody-platform',
+				getChannelName(repo),
 				'',
 				openedAttachment(prData)
 			)
 		} else if (action === 'closed' && prData.merged) {
 			this.prBot.postMessageToGroup(
-				'cinebody-platform',
+				getChannelName(repo),
 				'',
 				closedAttachment(prData)
 			)
@@ -76,7 +76,7 @@ const closedAttachment = prData => {
 			{
 				fallback: message,
 				color: '#6F42C1',
-				text: `${message} You rock!`,
+				text: `${message} You're a good teammate and a stellar human being. :bshop:`,
 			},
 		],
 	}

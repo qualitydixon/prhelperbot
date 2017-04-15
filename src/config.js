@@ -7,3 +7,8 @@ export const ghToSlack = {
 	RobinNCain: 'robin',
 	BrandonMinch: 'brandon',
 }
+
+export const repoToChannel = {
+	'io-barbershop-razor': 'boilerplates',
+	'com-cinebody-pro': 'cinebody-platform',
+}

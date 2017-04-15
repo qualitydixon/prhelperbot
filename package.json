@@ -7,7 +7,8 @@
     "build": "babel src -d lib",
     "local": "babel src -d lib && node lib/server.js",
     "start": "node lib/server.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npm run build"
   },
   "author": "Mike Dixon <qualitydixon@gmail.com> (http://barbershop.io)",
   "license": "ISC",
