@@ -1,4 +1,4 @@
-import { ghToSlack } from '../config'
+import { ghToSlack } from './config'
 
 export function getSlackName(ghUser) {
 	return ghToSlack[ghUser]
