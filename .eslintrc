@@ -5,7 +5,8 @@
 		"sourceType": "module"
 	},
 	"env": {
-		"node": true
+		"node": true,
+		"jest": true
 	},
 	"rules": {
 		"no-var": 2,

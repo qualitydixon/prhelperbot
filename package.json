@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d lib",
     "local": "babel src -d lib && node lib/server.js",
-    "start": "node lib/server.js"
+    "start": "node lib/server.js",
+    "test": "jest"
   },
   "author": "Mike Dixon <qualitydixon@gmail.com> (http://barbershop.io)",
   "license": "ISC",
@@ -24,9 +25,14 @@
     "babel-preset-env": "1.4.0",
     "eslint": "3.19.0",
     "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-standard": "3.0.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2"
+    "jest": "19.0.2"
+  },
+  "engines": {
+    "node": "^6.10.2",
+    "npm": "^3.10.10"
   }
 }
